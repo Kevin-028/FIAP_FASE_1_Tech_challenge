@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}FIAP — Diagnóstico de Câncer de Mama{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}" />
+</head>
+<body>
+
+  <!-- Navbar responsiva -->
+  <nav class="navbar navbar-expand-lg fiap-navbar">
+    <div class="container">
+      <!-- Brand -->
+      <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+        <span class="fiap-logo-badge">FIAP</span>
+        <span class="navbar-title">Tech Challenge · Fase 1</span>
+      </a>
+
+      <!-- Hamburger (mobile) -->
+      <button class="navbar-toggler fiap-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navMenu"
+              aria-controls="navMenu" aria-expanded="false" aria-label="Menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1">
+          <li class="nav-item">
+            <a class="nav-link fiap-nav-link {{ 'active' if request.path == '/' }}" href="/">
+              🩺 Nova Análise
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fiap-nav-link {{ 'active' if request.path == '/exemplos' }}" href="/exemplos">
+              📋 Ver Exemplos
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Conteúdo principal -->
+  <main class="container-fluid container-xl px-3 px-md-4 my-4">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="fiap-footer mt-5 py-3">
+    <div class="container text-center small">
+      <span class="text-white opacity-75">
+        FIAP · Tech Challenge Fase 1 &nbsp;|&nbsp;
+        Regressão Logística &nbsp;|&nbsp;
+        Dataset: Breast Cancer Wisconsin
+      </span>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

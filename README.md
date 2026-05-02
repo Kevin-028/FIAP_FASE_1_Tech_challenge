@@ -89,6 +89,46 @@ Análise da base de dados de câncer de mama (569 pacientes, 30 features).
 
 ---
 
+---
+
+## 🌐 Aplicação Web
+
+Uma interface web (Flask, arquitetura MVC) permite usar o modelo treinado diretamente pelo navegador.
+
+### Estrutura
+
+```
+web/
+├── app.py                          # Entry point Flask
+├── controllers/
+│   └── prediction_controller.py   # Rotas (Blueprint)
+├── models/
+│   └── cancer_model.py            # Carrega o .pkl e executa predição
+├── templates/
+│   ├── base.html                  # Layout base (Navbar + Footer FIAP)
+│   ├── index.html                 # Formulário de entrada
+│   └── result.html                # Tela de resultado
+└── static/
+    ├── css/bootstrap.min.css      # Bootstrap 5.3 (local)
+    ├── css/custom.css             # Tema FIAP (vermelho #EF3340)
+    └── js/bootstrap.bundle.min.js
+```
+
+### Como rodar a web
+
+```bash
+# Com o ambiente virtual ativado:
+  cd web
+  python app.py
+```
+#ou apertando F5 no VS Code.
+
+
+Acesse **http://localhost:5000** no navegador.
+
+
+---
+
 ## 📦 Dependências principais
 
 | Biblioteca | Versão | Uso |
